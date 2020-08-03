@@ -3,7 +3,11 @@ pipeline {
     stages {
         stage('Testing') {
             steps {
-                echo 'Building test...'
+                echo 'Kubernetes test...'
+                kubernetesDeploy(
+                    kubeconfigId: 'kubeconfig',
+                    configs: 'kube-test.yml'
+                )
             }
         }
     }
